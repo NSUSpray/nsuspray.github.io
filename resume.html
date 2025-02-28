@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Zevakhin - Developer-Researcher</title>
+		<style>:root {
+	--main-font: Calibri, 'Helvetica Neue', Arial, sans-serif;
+	--emphasis-font: Corbel, Tahoma, sans-serif;
+	--margin: 2.9ex;
+}
+body {
+	margin: 0;
+	font-family: var(--main-font);
+	font-size: 12pt;
+}
+* { box-sizing: border-box; }
+:not(:not(body, :first-child) *):first-child
+		{ margin-top: 0; }
+:not(:not(:last-child) *):last-child
+		{ margin-bottom: 0; }
+section:not(#skills):not(:has(> dl)),
+dl > div,
+#skills
+		{ break-inside: avoid; }
+ul:not(.achievements) > li,
+.pr-boundary,
+.pr-duration
+		{ white-space: nowrap; }
+h1, h2, h3, h4, h5, h6
+		{ font-family: var(--emphasis-font); }
+h1 { font-size: xx-large; }
+ul {
+	padding-left: 2.3ex;
+	&:not(.achievements) {
+		padding-left: 0;
+		& > li {
+			display: inline-block;
+			&:has(+ li)::after { content: ', '; }
+		}
+	}
+}
+a {
+	text-decoration: none;
+	color: steelblue;
+	&:hover { text-decoration: underline; }
+}
+dl.periods > div {
+	& > dt { margin-top: var(--margin); }
+	& > dd { margin-bottom: var(--margin); }
+}
+.pr-duration {
+	&::before { content: '('; }
+	&::after { content: ')'; }
+}
+.pr-places > :not(:last-child)::after
+		{ content: ', '; }
+.ct-organization::before { content: '· '; }
+@media screen {
+	html { background-color: whitesmoke; }
+	body {
+		width: 210mm;
+		margin: auto;
+		padding: 1in;
+		background-color: white;
+	}
+}
+@media print {
+	a {
+		color: black;
+		&:not(.texted-link),
+		&.text-is-link
+				{ font-style: italic; }
+	}
+	.ct-organization {
+		font-style: italic;
+		&::before { font-style: normal; }
+	}
+}
+.pr-region { display: none; }
+#employment { break-inside: avoid; }
+header {
+	margin-bottom: calc(var(--margin) * 1.5);
+	& > * {
+		&:first-child { float: left; }
+		&:last-child {
+			padding-top: 1.2ex;  /* tuning */
+			text-align: right;
+			& > :first-child {
+				margin-top: 0;
+				margin-bottom: -1ex;  /* tuning */
+			}
+		}
+	}
+}
+#places,
+#citizenship
+		{ font-size: small; }
+h1 { font-variant: small-caps; }
+h2 { letter-spacing: 0.1ex; }
+#places:has( + #citizenship) {
+	margin-bottom: 0;
+	& + * { margin-top: 0; }
+}
+#summary,
+#languages,
+dl > div {
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: 41mm auto;
+	column-gap: 2.5ex;
+	align-items: baseline;
+	margin-bottom: var(--margin);
+	#skills & { margin-bottom: calc(var(--margin) / 2); }
+	& * { margin: 0; }
+	& :has(+ .achievements)  /* dirty trick */
+			{ margin-bottom: revert; }
+}
+dt { text-align: right; }
+dd { margin-left: 0; }
+h3 {
+	border-bottom: dotted 1pt;
+	text-transform: uppercase;
+}
+header li:has(+ li):not(.phone)::after
+		{ content: ' · '; }
+#skills li, #languages li {
+	margin-right: 1em;
+	font-family: var(--emphasis-font);
+	&:has(+ li)::after { content: none; }
+}
+#languages li::first-letter
+		{ text-transform: uppercase; }
+ul.achievements { list-style-type: '— '; }
+.pr-duration {
+	font-style: italic;
+	&::before,
+	&::after
+			{ content: none; }
+}
+@media screen {
+	body { padding: 0.5in; }
+}
+</style>
+	</head>
+	<body>
+<header>
+	<div>
+		<h1 id="name">Vladimir Zevakhin</h1>
+		<h2 id="position">Developer-Researcher</h2>
+	</div>
+	<div>
+<ul id="contacts">
+	<li class="phone">+996 (550) 65 51 14</li>
+	<li class="phone">+7 (931) 001 18 46</li>
+	<br>
+	<li id="email"><a href="mailto:nsu.spray@gmail.com">nsu.spray@gmail.com</a></li>
+	<br>
+	<li id="social"><a href="https://www.linkedin.com/in/zevakhin/">linkedin.com/in/zevakhin</a></li>
+	<li id="im"><a href="https://t.me/nsuspray">t.me/nsuspray</a></li>
+</ul>
+		<ul id="places">
+	<li id="reside">Karakol</li>
+	<li id="relocate">ready to relocate</li>
+	<li id="travel">ready for business trips</li>
+		</ul>
+		<p id="citizenship">Citizenship: Russia</p>
+	</div>
+</header>
+<main>
+	<section id="summary">
+		<h3>Summary</h3>
+		<p>Independent software engineer with a strong theoretical background and broad expertise. Developed many complex personal projects combining high-performance computing, visualization, and user-friendly interfaces. Rapidly learn and apply new technologies to solve non-standard problems. Open to teamwork on challenging projects.</p>
+	</section>
+<section id="skills">
+	<h3>Skills</h3>
+	<dl id="sk-groups">
+		<div>
+			<dt>languages</dt>
+			<dd>
+				<ul>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 3}">Python</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 3}">CSS</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 2}">JavaScript</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">HTML</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">SQL</li>
+	<li title="{&#39;proficiency&#39;: 3, &#39;preference&#39;: 1, &#39;demand&#39;: 1}">C</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">C++</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 3, &#39;demand&#39;: 1}">Haskell</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">Smalltalk</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 1}">MATLAB</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 1}">XSLT/XPath</li>
+				</ul>
+			</dd>
+		</div>
+		<div>
+			<dt>tools</dt>
+			<dd>
+				<ul>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">Git</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">GitHub</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">Vim</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">Docker</li>
+				</ul>
+			</dd>
+		</div>
+		<div>
+			<dt>libraries</dt>
+			<dd>
+				<ul>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 3}">Vue.js</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 2, &#39;demand&#39;: 2}">PyQt</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 2, &#39;demand&#39;: 2}">NumPy</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">multiprocessing</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">threading</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 3, &#39;demand&#39;: 1}">SymPy</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 2}">Flask</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">Scotty</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">Box2D</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 1}">Pharo</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 1}">Matplotlib</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 1}">pytest</li>
+				</ul>
+			</dd>
+		</div>
+		<div>
+			<dt>theoretical knowledge</dt>
+			<dd>
+				<ul>
+	<li title="{&#39;proficiency&#39;: 3, &#39;preference&#39;: 3, &#39;demand&#39;: 2}">algorithms</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">linear algebra</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">calculus</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">OOP</li>
+	<li title="{&#39;proficiency&#39;: 2, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">physics</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 1, &#39;demand&#39;: 3}">deep learning</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 3, &#39;demand&#39;: 1}">discrete mathematics</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 3, &#39;demand&#39;: 1}">FP</li>
+	<li title="{&#39;proficiency&#39;: 1, &#39;preference&#39;: 2, &#39;demand&#39;: 1}">computational mathematics</li>
+				</ul>
+			</dd>
+		</div>
+	</dl>
+</section>
+<section id="languages">
+	<h3>Languages</h3>
+	<ul>
+		<li>Russian — Native</li>
+		<li>English — B1&nbsp;— Intermediate</li>
+	</ul>
+</section>
+	<section id="projects">
+		<h3>Projects</h3>
+		<dl class="periods">
+			<div>
+				<dt>
+	<span class="pr-boundary">May 2022</span> —
+	<span class="pr-boundary">
+		Present
+	</span>
+	<span class="pr-duration">2 years 10 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">Keyboard Layout Analyzer</h4>
+	<p class="pr-places">
+		<span class="pr-region">Irkutsk—Bishkek</span>
+		<a href="https://github.com/NSUSpray/keyboard-layout-analyzer_vue.js">https://github.com/NSUSpray/keyboard-layout-analyzer_vue.js</a>
+	</p>
+					<p class="pr-description">Analyzer of keyboard layouts with calculation of the load on the hands and fingers.</p>
+	<ul class="achievements">
+	<li title="CSS">redesigned the layout and made the application responsive for various screen sizes, improving usability across all devices</li>
+	<li title="Vue.js">designed architecture of the application with Vue&nbsp;3 and developed a dozen non-trivial components</li>
+	<li title="JavaScript">increased the expressiveness of the code by applying modern ECMAScript&nbsp;6 designs and methods</li>
+	<li title="HTML">implemented a semantic markup thanks to new HTML5 elements and attributes</li>
+	<li title="FP">improved code clarity and scalability by leveraging closures and custom higher-order functions</li>
+	<li title="computational">implemented automatic hands angle calculation using the least squares method</li>
+	</ul>
+				</dd>
+			</div>
+			<div>
+				<dt>
+	<span class="pr-boundary">Mar 2023</span> —
+	<span class="pr-boundary">
+		Apr 2023
+	</span>
+	<span class="pr-duration">2 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">RigidPacker</h4>
+	<p class="pr-places">
+		<span class="pr-region">Bishkek</span>
+		<a href="https://github.com/NSUSpray/RigidPacker">https://github.com/NSUSpray/RigidPacker</a>
+	</p>
+					<p class="pr-description">Visual editor of hierarchical data in the form of a circular treemap chart with real-time packing using a rigid body physics engine.</p>
+	<ul class="achievements">
+	<li title="algorithms">improved the efficiency of data structures, enabling 10× more elements to be processed without FPS drop</li>
+	<li title="Python">integrated data access, real-time graphics, and high-performance calculations via Python bindings</li>
+	<li title="SQL">designed a database with a dozen tables and relations</li>
+	<li title="PyQt">optimized 2D graphics rendering with Qt, achieving stable real-time performance in a multithreaded environment</li>
+	<li title="OOP">designed a modular architecture following OOP principles</li>
+	<li title="Box2D">developed a novel approach to the packaging problem using Box2D for real-time optimization of object placement</li>
+	</ul>
+				</dd>
+			</div>
+			<div>
+				<dt>
+	<span class="pr-boundary">Dec 2016</span> —
+	<span class="pr-boundary">
+		Jan 2022
+	</span>
+	<span class="pr-duration">5 years 2 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">Live API documentation</h4>
+	<p class="pr-places">
+		<span class="pr-region">Saint Petersburg</span>
+		<a href="https://nsuspray.github.io/Live_API_Doc/">https://nsuspray.github.io/Live_API_Doc/</a>
+	</p>
+					<p class="pr-description">Ableton Live API documentation converter into a more convenient format with the ability to compare different API versions.</p>
+	<ul class="achievements">
+	<li title="Python">transformed unstructured XML data into a hierarchical form, implemented API version comparison with an independent display of additions, changes, and matches</li>
+	<li title="CSS">redesigned the document layout to improve readability and navigation</li>
+	<li title="JavaScript">integrated and refined a third-party JavaScript library to enable smooth hierarchical navigation within the document</li>
+	<li title="XSLT/XPath">used XSLT and XPath to map the prepared XML data into an HTML document supplemented with a navigation menu</li>
+	</ul>
+				</dd>
+			</div>
+			<div>
+				<dt>
+	<span class="pr-boundary">Oct 2021</span> —
+	<span class="pr-boundary">
+		Dec 2021
+	</span>
+	<span class="pr-duration">3 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">AutoIt Plys for Sublime Text</h4>
+	<p class="pr-places">
+		<span class="pr-region">Irkutsk</span>
+		<a href="https://packagecontrol.io/packages/AutoIt Plys">https://packagecontrol.io/packages/AutoIt Plys</a>
+	</p>
+					<p class="pr-description">Package for AutoIt language and its extension Plys for Sublime Text.</p>
+				</dd>
+			</div>
+			<div>
+				<dt>
+	<span class="pr-boundary">Oct 2017</span> —
+	<span class="pr-boundary">
+		Nov 2021
+	</span>
+	<span class="pr-duration">4 years 2 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">AutoIt Plys</h4>
+	<p class="pr-places">
+		<span class="pr-region">Saint Petersburg</span>
+		<a href="https://www.autoitscript.com/forum/topic/198342-plys-–-autoit-superset-with-namespaces-and-stuff/" class="texted-link text-is-link">https://github.com/NSUSpray/Plys</a>
+	</p>
+					<p class="pr-description">Translator from AutoIt Plys, a superset of the AutoIt language, into plain AutoIt. Complements AutoIt with file-level namespaces and more.</p>
+				</dd>
+			</div>
+			<div>
+				<dt>
+	<span class="pr-boundary">Mar 2014</span> —
+	<span class="pr-boundary">
+		May 2019
+	</span>
+	<span class="pr-duration">5 years 3 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">GoodKeys</h4>
+	<p class="pr-places">
+		<span class="pr-region">Saint Petersburg</span>
+		<a href="https://forum.ableton.com/viewtopic.php?t=220718">https://forum.ableton.com/viewtopic.php?t=220718</a>
+	</p>
+					<p class="pr-description">Ableton Live addition that extends a list of keyboard shortcuts.</p>
+	<ul class="achievements">
+	<li title="Python">learned Python at the level necessary for solving project’s challenges, and successfully applied my new knowledge</li>
+	<li title="multiprocessing">overcame the limitations of Live’s built-in Python interpreter by offloading OS interaction logic to a separate process</li>
+	<li title="threading">moved out the processing of instructions coming from the child process to a separate thread</li>
+	</ul>
+				</dd>
+			</div>
+		</dl>
+	</section>
+	<section id="employment">
+		<h3>Tutoring</h3>
+		<dl class="periods">
+			<div>
+				<dt>
+	<span class="pr-boundary">Nov 2011</span> —
+	<span class="pr-boundary">
+		Present
+	</span>
+	<span class="pr-duration">13 years 4 months</span>
+</dt>
+				<dd>
+					<h4 class="pr-name">Private practice</h4>
+	<p class="pr-places">
+		<a href="https://repetitors.info/repetitor/p/ZevahinVS3/">https://repetitors.info/repetitor/p/ZevahinVS3/</a>
+	</p>
+					<h4 class="pr-position">Tutor (computer science, mathematics, physics)</h4>
+	<ul class="achievements">
+	<li>teach algorithms, data structures, FP, OOP, linear algebra, numerical methods, discrete mathematics, C, Python, Haskell, C++, JavaScript, Pascal, MATLAB</li>
+	<li>used various environments and frameworks: NumPy, SymPy, Mathcad, OpenCV, Windows Forms and others</li>
+	<li>establish rapport and ensure effective communication in challenging situations</li>
+	</ul>
+				</dd>
+			</div>
+		</dl>
+	</section>
+<section id="certifications">
+	<h3>Additional education</h3>
+	<dl class="periods">
+		<div>
+			<dt>2024</dt>
+			<dd>
+				<ul class="achievements">
+					<li>
+						<a href="https://stepik.org/cert/2427694?lang=en" class="texted-link">Python. Multiprocessing programming</a>
+						<span class="ct-organization">Stepik</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2615273?lang=en" class="texted-link">Symbolic calculations in python with SymPy</a>
+						<span class="ct-organization">Stepik</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2624781?lang=en" class="texted-link">Discrete structures</a>
+						<span class="ct-organization">Stepik</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2427694?lang=en" class="texted-link">Python. Multithreading programming</a>
+						<span class="ct-organization">Stepik</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2339593?lang=en" class="texted-link">Functional programming in Haskell (Part&nbsp;2)</a>
+						<span class="ct-organization">Computer Science Center</span>
+					</li>
+				</ul>
+			</dd>
+		</div>
+		<div>
+			<dt>2023</dt>
+			<dd>
+				<ul class="achievements">
+					<li>
+						<a href="https://stepik.org/cert/2307901?lang=en" class="texted-link">Numpy and data analysis</a>
+						<span class="ct-organization">Stepik</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2286123?lang=en" class="texted-link">Mathematical logic and theory of algorithms</a>
+						<span class="ct-organization">Tomsk State University</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2167940?lang=en" class="texted-link">Neural networks and computer vision</a>
+						<span class="ct-organization">Samsung Innovation Campus</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2148711?lang=en" class="texted-link">Functional programming in Haskell</a>
+						<span class="ct-organization">Computer Science Center</span>
+					</li>
+					<li>
+						<a href="https://stepik.org/cert/2081978?lang=en" class="texted-link">Interactive SQL Simulator</a>
+						<span class="ct-organization">Far Eastern Federal University</span>
+					</li>
+					<li>
+						<a href="https://openbadgefactory.com/v1/assertion/da1ed2581c8f8ba530e03b9c1f6d8e7ba386f1a4" class="texted-link">Live Object Programming in Pharo</a>
+						<span class="ct-organization">France Université Numérique</span>
+					</li>
+				</ul>
+			</dd>
+		</div>
+	</dl>
+</section>
+<section id="education">
+	<h3>Higher education</h3>
+	<dl class="periods">
+		<div>
+			<dt>2010</dt>
+			<dd>
+				<h4 class="ed-institution">Novosibirsk State University</h4>
+				<p class="ed-degree">
+					Bachelor of Science, Physics
+				</p>
+			</dd>
+		</div>
+	</dl>
+</section>
+</main>
+	</body>
+</html>
